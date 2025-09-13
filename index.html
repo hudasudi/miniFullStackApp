@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Stack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>InstandGramen</h1>
+    <a href="">Recipes</a>
+    <a href="">About us</a>
+    <a href="">Contact</a>
+  </header>
+  <main>
+    <h2>My Favourite Recipes</h2>
+    <h3>Add a new recipe:</h3>
+    <form action="">
+      <label for="name">Name: </label>
+      <input type="text" name="name" id="name">
+      <br>
+      <label for="cuisine">Cuisine: </label>
+      <input type="text" name="cuisine" id="cuisine">
+      <br>
+      <label for="time">Time: </label>
+      <input type="text" name="time" id="time">
+      <br>
+      <label for="ingredients">Ingredients (each on a new line): </label>
+      <textarea name="ingredients" id="ingredients"></textarea>
+      <br>
+      <label for="steps">Steps (each on a new line): </label>
+      <textarea name="steps" id="steps"></textarea>
+      <br>
+      <input type="submit" value="Save Recipe">
+    </form>
+
+    <ul id="recipe-list">
+
+    </ul>
+  </main>
+  <footer>
+    <a href="">About us</a>
+    <a href="">Contract</a>
+    <a href="">Terms of Use</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
