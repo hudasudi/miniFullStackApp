@@ -8,10 +8,9 @@ const cors = require("cors");
 app.use(cors()); // add middleware so my backend can accept req from diff origins
 app.use(express.json()); // add another middleware/no need to install anything
 
-const recipesFilePath = path.join(__dirname, "recipes.json");
+const recipesFilePath = path.join(__dirname, "./recipes.json");
 
 //http req/res
-
 app.get("/", (req, res) => {
   res.send("Hello World, home page here!");
 });
@@ -36,12 +35,14 @@ app.post("/recipes", (req, res) => {
   fs.readFile(recipesFilePath, "utf-8", (err, data) => {
     const recipes = JSON.parse(data);
     recipes.push(newRecipe);
-
+    // javascript -> json
     fs.writeFile(recipesFilePath, JSON.stringify(recipes), () => {});
   });
 
   res.send("Recipe added, storing your favourite dishes");
 });
+
+app.delete("/recipes/:id", (req, res) => {});
 
 //start the server on port 3000
 app.listen(port, () => {
