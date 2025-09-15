@@ -22,6 +22,7 @@ app.get("/recipes", (req, res) => {
     // the err varaible holds errors if there are any
     // the data variable holds the data read in from the file
     // we need to pare the json data to be tured into plain js
+
     // json -> javascript
     const recipes = JSON.parse(data);
     // javascript -> json

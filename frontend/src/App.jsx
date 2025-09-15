@@ -1,4 +1,4 @@
-import Recipe from "./Recipes";
+import Recipes from "./Recipes";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <a href="">Contact</a>
       </header>
 
-      <Recipe />
+      <Recipes />
 
       <footer>
         <a href="">About us</a>
