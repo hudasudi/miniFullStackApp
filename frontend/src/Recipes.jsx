@@ -42,51 +42,74 @@ function Recipes() {
     <div>
       <main>
         <h1>My Favourite Recipes</h1>
-        <h2>Add a new recipe:</h2>
 
         <form onSubmit={handleForm}>
-          <label htmlFor="name">Name: </label>
-          <input type="text" name="name" id="name" />
+          <h2>Add a new recipe:</h2>
+
+          <div className="form-row">
+            <label htmlFor="name">Name: </label>
+            <input type="text" name="name" id="name" />
+          </div>
           <br />
-          <label htmlFor="cuisine">Cuisine: </label>
-          <input type="text" name="cuisine" id="cuisine" />
+          <div className="form-row">
+            <label htmlFor="cuisine">Cuisine: </label>
+            <input type="text" name="cuisine" id="cuisine" />
+          </div>
           <br />
-          <label htmlFor="time">Time: </label>
-          <input type="text" name="time" id="time" />
+          <div className="form-row">
+            <label htmlFor="time">Time: </label>
+            <input type="text" name="time" id="time" />
+          </div>
           <br />
-          <label htmlFor="ingredients">
-            Ingredients (each on a new line):{" "}
-          </label>
-          <textarea name="ingredients" id="ingredients"></textarea>
+          <div className="form-row">
+            <label htmlFor="ingredients">
+              Ingredients (each on a new line):{" "}
+            </label>
+            <textarea name="ingredients" id="ingredients"></textarea>
+          </div>
           <br />
-          <label htmlFor="steps">Steps (each on a new line): </label>
-          <textarea name="steps" id="steps"></textarea>
+          <div className="form-row">
+            <label htmlFor="steps">Steps (each on a new line): </label>
+            <textarea name="steps" id="steps"></textarea>
+          </div>
           <br />
-          <input type="submit" value="Save/Add Recipe" />
+          <div className="btn">
+            <input type="submit" value="Save Recipe" />
+          </div>
         </form>
 
-        <ul>
+        <div className="cards">
           {recipe.map((r, index) => (
-            <li key={index}>
-              <h3>Recipe: {r.name}</h3>
-              <p>
-                <strong>Cuisine: {r.cuisine}</strong>
-              </p>
-              <p>
-                <strong>Time: {r.time}</strong>
-              </p>
+            <div key={index} className="card">
+              <div className="card-content">
+                <h3>Recipe: {r.name}</h3>
+                <p>
+                  <strong>Cuisine:</strong> {r.cuisine}
+                </p>
+                <p>
+                  <strong>Time:</strong> {r.time}
+                </p>
 
-              <h4>Ingredients</h4>
-              <ul>
-                {r.ingredients &&
-                  r.ingredients.map((ing, j) => <li key={j}>{ing}</li>)}
-              </ul>
+                <h4>Ingredients</h4>
+                <ul>
+                  {r.ingredients?.map((ing, j) => (
+                    <li key={j}>{ing}</li>
+                  ))}
+                </ul>
 
-              <h5>Steps</h5>
-              <ol>{r.steps && r.steps.map((s, k) => <li key={k}>{s}</li>)}</ol>
-            </li>
+                <h5>Steps</h5>
+                <ol>
+                  {r.steps?.map((s, k) => (
+                    <li key={k}>{s}</li>
+                  ))}
+                </ol>
+                <div className="btn">
+                  <input type="submit" value="Delete Recipe" />
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </main>
     </div>
   );

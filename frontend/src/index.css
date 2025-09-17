@@ -1,22 +1,113 @@
-header{
-  background-color: rgb(20, 128, 92);
-  color: #fff;
-  padding: 10px 20px;
+header {
+  background-color: #6a9c89;
+  color: #f8f8f8;
+  padding: 0.5rem;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: space-around;
 }
-body{
+
+header h1 {
+  font-family: 'Pacifico';
+}
+
+body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin: 0;
-  background: rgb(255, 255, 255);
+  background: #fafafa;
   color: #080808;
 }
-footer{
-  background-color: rgb(20, 128, 92);
-  color: #fff;
+
+footer {
+  background-color: #6a9c89;
+  color: #f8f8f8;
   padding: 10px;
   text-align: center;
   margin-top: auto;
+}
+
+header a {
+  text-decoration: none;
+  color: #f8f8f8;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 2.2vh;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+header div {
+  display: flex;
+}
+
+form {
+  width: 33%;
+  margin: 48px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  margin: 24px;
+}
+
+footer div {
+  display: flex;
+}
+
+footer a {
+  text-decoration: none;
+  color: #f8f8f8;
+  padding: 1.5rem;
+  font-size: 2.2vh;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.btn input {
+  border: none;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #28a745;
+  color: #f8f8f8;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.cards {
+  background-color: rgb(206, 221, 207);
+  display: grid;
+}
+
+.card {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 20px;
+  margin: 20px;
+  background: rgb(90, 120, 97);
+  border: 1px solid #d4edda;
+  border-radius: 10px;
+}
+
+.card-content {
+  background-color: rgb(255, 255, 255);
+
+}
+
+@media screen and (max-width: 600px) {
+  form {
+    width: 80%;
+    margin: 24px;
+  }
 }

@@ -4,6 +4,7 @@ const port = 3000;
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
+const { json } = require("stream/consumers");
 
 app.use(cors()); // add middleware so my backend can accept req from diff origins
 app.use(express.json()); // add another middleware/no need to install anything
