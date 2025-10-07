@@ -1,5 +1,6 @@
 import Recipes from "./Recipes";
 import "@fontsource/pacifico";
+
 function App() {
   return (
     <div>

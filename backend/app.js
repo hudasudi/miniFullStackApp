@@ -4,7 +4,6 @@ const port = 3000;
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const { json } = require("stream/consumers");
 
 app.use(cors()); // add middleware so my backend can accept req from diff origins
 app.use(express.json()); // add another middleware/no need to install anything
@@ -30,6 +29,25 @@ app.get("/recipes", (req, res) => {
     res.json(recipes);
   });
 });
+app.get("/cuisine-data", (req, res) => {
+  fs.readFile(recipesFilePath, "utf-8", (err, data) => {
+    const recipes = JSON.parse(data);
+
+    const occurrances = recipes.reduce((accumulator, recipe) => {
+      //current
+      const cuisine = recipe.cuisine;
+      //if its existis
+      if (accumulator[cuisine]) {
+        accumulator[cuisine] = accumulator[cuisine] + 1;
+      } else {
+        accumulator[cuisine] = 1;
+      }
+      return accumulator;
+    }, {});
+    console.log(occurrances);
+    res.json(occurrances);
+  });
+});
 
 app.post("/recipes", (req, res) => {
   const newRecipe = req.body;
@@ -37,14 +55,13 @@ app.post("/recipes", (req, res) => {
   fs.readFile(recipesFilePath, "utf-8", (err, data) => {
     const recipes = JSON.parse(data);
     recipes.push(newRecipe);
+
     // javascript -> json
     fs.writeFile(recipesFilePath, JSON.stringify(recipes), () => {});
   });
 
   res.send("Recipe added, storing your favourite dishes");
 });
-
-app.delete("/recipes/:id", (req, res) => {});
 
 //start the server on port 3000
 app.listen(port, () => {

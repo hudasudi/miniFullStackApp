@@ -75,6 +75,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
+button,
 .btn input {
   border: none;
   border: 1px solid rgb(0, 0, 0);
@@ -83,18 +84,20 @@ footer a:hover {
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .cards {
   background-color: rgb(206, 221, 207);
   display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  gap: 3rem;
 }
 
 .card {
   width: 100%;
-  max-width: 500px;
-  padding: 10px 20px;
-  margin: 20px;
+  max-width: 400px;
+  padding: 20px 20px;
   background: rgb(90, 120, 97);
   border: 1px solid #d4edda;
   border-radius: 10px;
@@ -102,7 +105,13 @@ footer a:hover {
 
 .card-content {
   background-color: rgb(255, 255, 255);
+  padding: 20px 30px;
 
+}
+
+#myChart {
+  width: 100%;
+  max-width: 600px
 }
 
 @media screen and (max-width: 600px) {
@@ -110,4 +119,7 @@ footer a:hover {
     width: 80%;
     margin: 24px;
   }
+
+
+
 }

@@ -34,14 +34,38 @@ function Recipes() {
     const updated = await res.json();
 
     setRecipe(updated);
+
     console.log(updated);
 
     e.target.reset();
   };
+
+  const cuisineChart = async () => {
+    const cuisineResponse = await fetch("http://localhost:3000/cuisine-data");
+    const cuisineData = await cuisineResponse.json();
+
+    const xValue = Object.keys(cuisineData);
+    const yValue = Object.values(cuisineData);
+
+    new Chart("myChart", {
+      type: "pie",
+      data: {
+        labels: xValue,
+        datasets: [
+          {
+            data: yValue,
+          },
+        ],
+      },
+    });
+  };
+
   return (
     <div>
       <main>
         <h1>My Favourite Recipes</h1>
+
+        <canvas id="myChart"></canvas>
 
         <form onSubmit={handleForm}>
           <h2>Add a new recipe:</h2>
@@ -103,8 +127,8 @@ function Recipes() {
                     <li key={k}>{s}</li>
                   ))}
                 </ol>
-                <div className="btn">
-                  <input type="submit" value="Delete Recipe" />
+                <div>
+                  <button>Delete Recipe</button>
                 </div>
               </div>
             </div>
