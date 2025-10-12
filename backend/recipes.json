@@ -200,5 +200,58 @@
       "Remove from heat, drizzle with sesame oil.",
       "Garnish with sesame seeds and green onions, serve with rice or steamed vegetables."
     ]
+  },
+  {
+    "name": "Shakshuka",
+    "time": "30 minutes",
+    "cuisine": "Middle Eastern",
+    "ingredients": [
+      "2 tablespoons olive oil",
+      "1 onion, chopped",
+      "1 red bell pepper, chopped",
+      "2 cloves garlic, minced",
+      "1 teaspoon paprika",
+      "1 teaspoon cumin",
+      "400g canned tomatoes",
+      "4 large eggs",
+      "Fresh parsley for garnish",
+      "Salt and pepper to taste"
+    ],
+    "steps": [
+      "Heat olive oil in a skillet over medium heat.",
+      "Add onion and bell pepper, cook until softened.",
+      "Add garlic, paprika, and cumin, cook for 1 minute.",
+      "Stir in canned tomatoes and simmer for 10 minutes.",
+      "Make 4 small wells in the sauce and crack an egg into each.",
+      "Cover skillet and cook until eggs are set to your liking.",
+      "Season with salt and pepper, garnish with parsley, and serve with bread."
+    ]
+  },
+  {
+    "name": "Tteokbokki",
+    "cuisine": "Korean",
+    "time": "25 minutes",
+    "ingredients": [
+      "300g Korean rice cakes (tteok),",
+      "150g fish cakes, sliced,",
+      "2 cups water,",
+      "1 tablespoon gochujang (Korean chili paste),",
+      "1 tablespoon gochugaru (Korean chili flakes),",
+      "2 tablespoons soy sauce,",
+      "1 tablespoon sugar,",
+      "2 cloves garlic, minced,",
+      "1 green onion, chopped,",
+      "1 boiled egg (optional),",
+      "Sesame seeds for garnish"
+    ],
+    "steps": [
+      "Soak rice cakes in warm water for 10 minutes if they’re hard or refrigerated.,",
+      "In a pan, combine water, gochujang, gochugaru, soy sauce, sugar, and garlic. Bring to a boil.,",
+      "Add rice cakes and fish cakes to the sauce. Stir well.,",
+      "Simmer for 10–15 minutes until the sauce thickens and rice cakes are soft and chewy.,",
+      "Add chopped green onion and stir for another minute.,",
+      "Top with boiled egg halves if using, and sprinkle with sesame seeds.,",
+      "Serve hot and enjoy the spicy, savory goodness!"
+    ]
   }
 ]
