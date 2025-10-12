@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
 function Recipes() {
   const [recipe, setRecipe] = useState([]);
+
+  const canvaRef = useRef(null);
 
   useEffect(() => {
     fetch("http://localhost:3000/recipes")
@@ -10,6 +13,37 @@ function Recipes() {
       .catch((err) => console.error("Error fechting recipes", err));
   }, []);
 
+  useEffect(() => {
+    const cuisineChart = async () => {
+      const cuisineResponse = await fetch("http://localhost:3000/cuisine-data");
+      const cuisineData = await cuisineResponse.json();
+
+      const xValue = Object.keys(cuisineData);
+      const yValue = Object.values(cuisineData);
+
+      const ctx = canvaRef.current.getContext("2d");
+
+      const chart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: xValue,
+          datasets: [
+            {
+              data: yValue,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Cuisine Popularity",
+          },
+        },
+      });
+      return () => chart.destroy(); // clean up
+    };
+    cuisineChart();
+  }, []);
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -40,32 +74,12 @@ function Recipes() {
     e.target.reset();
   };
 
-  const cuisineChart = async () => {
-    const cuisineResponse = await fetch("http://localhost:3000/cuisine-data");
-    const cuisineData = await cuisineResponse.json();
-
-    const xValue = Object.keys(cuisineData);
-    const yValue = Object.values(cuisineData);
-
-    new Chart("myChart", {
-      type: "pie",
-      data: {
-        labels: xValue,
-        datasets: [
-          {
-            data: yValue,
-          },
-        ],
-      },
-    });
-  };
-
   return (
     <div>
       <main>
         <h1>My Favourite Recipes</h1>
 
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart" ref={canvaRef}></canvas>
 
         <form onSubmit={handleForm}>
           <h2>Add a new recipe:</h2>

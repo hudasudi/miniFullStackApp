@@ -31,20 +31,22 @@ app.get("/recipes", (req, res) => {
 });
 app.get("/cuisine-data", (req, res) => {
   fs.readFile(recipesFilePath, "utf-8", (err, data) => {
-    const recipes = JSON.parse(data);
+    const recipes = JSON.parse(data); // read in recipe json file
 
     const occurrances = recipes.reduce((accumulator, recipe) => {
+      // iterating
       //current
-      const cuisine = recipe.cuisine;
-      //if its existis
-      if (accumulator[cuisine]) {
-        accumulator[cuisine] = accumulator[cuisine] + 1;
+      const currentcuisine = recipe.cuisine;
+      //if its existis on the acc obj
+      if (accumulator[currentcuisine]) {
+        accumulator[currentcuisine] = accumulator[currentcuisine] + 1; // count it
       } else {
-        accumulator[cuisine] = 1;
+        accumulator[currentcuisine] = 1; // set it to 1
       }
       return accumulator;
-    }, {});
+    }, {}); // empty obj
     console.log(occurrances);
+    // json data
     res.json(occurrances);
   });
 });
